@@ -1,6 +1,6 @@
 #include <emscripten/bind.h>
 
-#include "patchworkpp.h"
+#include "patchwork.h"
 
 using namespace emscripten;
 

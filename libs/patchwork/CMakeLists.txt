@@ -4,7 +4,7 @@ project(patchwork_wasm)
 set(CMAKE_CXX_STANDARD 14)
 
 # Base
-set(TARGET_NAME patchworkpp)
+set(TARGET_NAME patchwork)
 
 set(EIGEN_INCLUDE ./deps)
 
@@ -19,8 +19,6 @@ endforeach(SRC)
 
 add_executable(${TARGET_NAME} ${SRCS})
 target_link_libraries(${TARGET_NAME})
-
-option(CMAKE_BUILD_TYPE "This is a option for build type" "Debug")
 
 set(INCOMING_MODULE_JS_API "fetchSettings,locateFile,wasmBinary")
 set(EM_LINK_FLAGS "-lembind -sSTRICT=1 -sSTRICT_JS=1 -sALLOW_MEMORY_GROWTH=1 -sMODULARIZE=1 -sEXPORT_ES6=1 -sUSE_ES6_IMPORT_META=0 -sEXPORT_NAME=PatchWorkpp -sINCOMING_MODULE_JS_API=${INCOMING_MODULE_JS_API} --no-entry -sENVIRONMENT=web,webview,worker -O3")

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="file" id="file" />
+    <script src="http://localhost:4321/dist/ground-segmentation.js"></script>
+    <script>
+      async function main() {
+        const patchwork = await new GroundSegmentation.PatchWork();
+
+        console.log(patchwork);
+        const fileInput = document.getElementById('file');
+        fileInput.onchange = (e) => {
+          const reader = new FileReader();
+          reader.onload = function (e) {};
+          reader.readAsArrayBuffer(e.target.files[0]);
+        };
+      }
+
+      main();
+    </script>
+  </body>
+</html>
